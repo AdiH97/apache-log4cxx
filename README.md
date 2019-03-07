@@ -30,7 +30,7 @@ En esta tabla, se resume todas las configuraciones y plataformas en que se puede
 ---
 Todas las contribuciones son bienvenidas mientras arreglen el proyecto.
 
-Para cambios significativamente grandes, errores o sugerencias, por favor abrid una `Issue`
+Para cambios significativamente grandes, errores o sugerencias, por favor utilizad las `Issue`
 
 
 
