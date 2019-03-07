@@ -80,18 +80,22 @@
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release_Static|x64'">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Dynamic|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug_Static|x64'">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Dynamic|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -126,44 +130,45 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Static|x64'">
-    <OutDir>.\x64\LibR\</OutDir>
-    <IntDir>.\x64\LibR\</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Dynamic|x64'">
-    <OutDir>.\x64\LibR\</OutDir>
-    <IntDir>.\x64\LibR\</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Static|Win32'">
-    <OutDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\</OutDir>
-    <IntDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\$(BaseIntermediateOutputPath)</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Dynamic|Win32'">
-    <OutDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\</OutDir>
-    <IntDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\$(BaseIntermediateOutputPath)</IntDir>
-    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
+    <LinkIncremental>
+    </LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Static|x64'">
-    <OutDir>.\x64\LibD\</OutDir>
-    <IntDir>.\x64\LibD\</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Dynamic|x64'">
-    <OutDir>.\x64\LibD\</OutDir>
-    <IntDir>.\x64\LibD\</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Static|Win32'">
-    <OutDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\</OutDir>
-    <IntDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\$(BaseIntermediateOutputPath)</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Dynamic|Win32'">
-    <OutDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\</OutDir>
-    <IntDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\$(BaseIntermediateOutputPath)</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Static|x64'">
     <ClCompile>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -173,10 +178,10 @@
       <OmitFramePointers>false</OmitFramePointers>
       <AdditionalIncludeDirectories>./include;./include/arch;./include/arch/win32;./include/arch/unix;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;APR_DECLARE_STATIC;WIN32;WINNT;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\x64\LibR\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\x64\LibR\apr.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <ProgramDataBaseFileName>$(OutDir)apr-1</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <ResourceCompile>
       <Culture>0x0409</Culture>
@@ -184,7 +189,7 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\x64\LibR\apr.bsc</OutputFile>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
     </Bscmake>
     <Lib>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -203,10 +208,10 @@
       <OmitFramePointers>false</OmitFramePointers>
       <AdditionalIncludeDirectories>./include;./include/arch;./include/arch/win32;./include/arch/unix;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;APR_DECLARE_STATIC;WIN32;WINNT;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\x64\LibR\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\x64\LibR\apr.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <ProgramDataBaseFileName>$(OutDir)apr-1</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <ResourceCompile>
       <Culture>0x0409</Culture>
@@ -214,16 +219,19 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\x64\LibR\apr.bsc</OutputFile>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
     </Bscmake>
     <Lib>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>x64\LibR\apr-1.lib</OutputFile>
     </Lib>
+    <Link>
+      <AdditionalDependencies>WS2_32.LIB;ADVAPI32.LIB;ODBC32.LIB;MSWSOCK.LIB;SHELL32.LIB;RPCRT4.LIB;legacy_stdio_definitions.lib</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Static|Win32'">
     <ClCompile>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <Optimization>Disabled</Optimization>
@@ -252,7 +260,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Dynamic|Win32'">
     <ClCompile>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <Optimization>Disabled</Optimization>
@@ -279,12 +287,12 @@
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Lib>
     <Link>
-      <AdditionalDependencies>WS2_32.LIB;ADVAPI32.LIB;ODBC32.LIB;MSWSOCK.LIB;SHELL32.LIB;RPCRT4.LIB;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>WS2_32.LIB;ADVAPI32.LIB;ODBC32.LIB;MSWSOCK.LIB;SHELL32.LIB;RPCRT4.LIB</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Static|x64'">
     <ClCompile>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <Optimization>Disabled</Optimization>
@@ -292,10 +300,10 @@
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>./include;./include/arch;./include/arch/win32;./include/arch/unix;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;APR_DECLARE_STATIC;WIN32;WINNT;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\x64\LibD\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\x64\LibD\apr.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <ProgramDataBaseFileName>$(OutDir)apr-1</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions> /EHsc </AdditionalOptions>
     </ClCompile>
     <ResourceCompile>
@@ -304,11 +312,12 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\x64\LibD\apr.bsc</OutputFile>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
     </Bscmake>
     <Lib>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>x64\LibD\apr-1.lib</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Dynamic|x64'">
@@ -321,10 +330,10 @@
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>./include;./include/arch;./include/arch/win32;./include/arch/unix;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;APR_DECLARE_STATIC;WIN32;WINNT;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\x64\LibD\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\x64\LibD\apr.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <ProgramDataBaseFileName>$(OutDir)apr-1</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions> /EHsc </AdditionalOptions>
     </ClCompile>
     <ResourceCompile>
@@ -333,16 +342,19 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\x64\LibD\apr.bsc</OutputFile>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
     </Bscmake>
     <Lib>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>x64\LibD\apr-1.lib</OutputFile>
     </Lib>
+    <Link>
+      <AdditionalDependencies>WS2_32.LIB;ADVAPI32.LIB;ODBC32.LIB;MSWSOCK.LIB;SHELL32.LIB;RPCRT4.LIB;legacy_stdio_definitions.lib</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Static|Win32'">
     <ClCompile>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -372,7 +384,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Dynamic|Win32'">
     <ClCompile>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -400,7 +412,7 @@
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Lib>
     <Link>
-      <AdditionalDependencies>WS2_32.LIB;ADVAPI32.LIB;ODBC32.LIB;MSWSOCK.LIB;SHELL32.LIB;RPCRT4.LIB;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>WS2_32.LIB;ADVAPI32.LIB;ODBC32.LIB;MSWSOCK.LIB;SHELL32.LIB;RPCRT4.LIB</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -863,16 +875,6 @@
     <ClInclude Include="include\apr_dso.h" />
     <ClInclude Include="include\apr_env.h" />
     <ClInclude Include="include\apr_errno.h" />
-    <CustomBuild Include="include\apr_escape.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_Static|x64'">cl.exe /nologo /W3 /EHsc /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FD /I ".\include" /Fo.\x64\Debug\gen_test_char /Fe.\x64\Debug\gen_test_char.exe .\tools\gen_test_char.c 
-.\x64\Debug\gen_test_char.exe &gt; .\include\apr_escape_test_char.h</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_Dynamic|x64'">cl.exe /nologo /W3 /EHsc /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FD /I ".\include" /Fo.\x64\Debug\gen_test_char /Fe.\x64\Debug\gen_test_char.exe .\tools\gen_test_char.c 
-.\x64\Debug\gen_test_char.exe &gt; .\include\apr_escape_test_char.h</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_Static|x64'">Creating gen_test_char.exe and apr_escape_test_char.h</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_Dynamic|x64'">Creating gen_test_char.exe and apr_escape_test_char.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_Static|x64'">.\include\apr_escape_test_char.h;.\include\apr_escape_test_char.h;.\include\apr_escape_test_char.h;.\include\apr_escape_test_char.h;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_Dynamic|x64'">.\include\apr_escape_test_char.h;.\include\apr_escape_test_char.h;.\include\apr_escape_test_char.h;.\include\apr_escape_test_char.h;%(Outputs)</Outputs>
-    </CustomBuild>
     <ClInclude Include="include\apr_file_info.h" />
     <ClInclude Include="include\apr_file_io.h" />
     <ClInclude Include="include\apr_fnmatch.h" />

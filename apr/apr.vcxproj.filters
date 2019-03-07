@@ -446,8 +446,5 @@
     <CustomBuild Include="include\apr.hw">
       <Filter>Public Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="include\apr_escape.h">
-      <Filter>Public Header Files</Filter>
-    </CustomBuild>
   </ItemGroup>
 </Project>

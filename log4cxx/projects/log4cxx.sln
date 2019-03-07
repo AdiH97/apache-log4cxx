@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apr", "..\..\apr\apr.vcxproj", "{DF292F37-BCDF-4252-AFC4-646E6FB03BC4}"
 EndProject
-Project("{059D6162-CD51-11D0-AE1F-00A0C90FFFC3}") = "xml", "..\..\apr-util\xml\expat\lib\xml.dsp", "{298D0882-1C04-4A1C-AA8E-316494CB5CE7}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aprutil", "..\..\apr-util\aprutil.vcxproj", "{CEC94205-7560-4A02-9CC2-3C5C7F430A0B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "log4cxx", "log4cxx.vcxproj", "{DA040F0F-C919-4DCC-A885-12D446B46668}"

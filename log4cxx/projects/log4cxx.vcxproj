@@ -77,30 +77,30 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Static|Win32'">
-    <OutDir>..\..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\</OutDir>
-    <IntDir>..\..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\$(BaseIntermediateOutputPath)</IntDir>
+    <OutDir>..\..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Dynamic|Win32'">
-    <OutDir>..\..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\</OutDir>
-    <IntDir>..\..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\$(BaseIntermediateOutputPath)</IntDir>
+    <OutDir>..\..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>..\..\built\expat\Release\DynamicLibrary\;..\..\built\aprutil\Release_Static\StaticLibrary\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Static|Win32'">
-    <OutDir>..\..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\</OutDir>
-    <IntDir>..\..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\$(BaseIntermediateOutputPath)</IntDir>
+    <OutDir>..\..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Dynamic|Win32'">
-    <OutDir>..\..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\</OutDir>
-    <IntDir>..\..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\$(BaseIntermediateOutputPath)</IntDir>
+    <OutDir>..\..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
-    <OutDir>..\..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\</OutDir>
-    <IntDir>..\..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\$(BaseIntermediateOutputPath)</IntDir>
+    <OutDir>..\..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Static|Win32'">
     <ClCompile>

@@ -92,18 +92,25 @@
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug_Static|x64'">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Dynamic|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release_Static|x64'">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Dynamic|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Template|x64'">
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -141,46 +148,53 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Static|x64'">
-    <OutDir>.\x64\LibD\</OutDir>
-    <IntDir>.\x64\LibD\</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Dynamic|x64'">
-    <OutDir>.\x64\LibD\</OutDir>
-    <IntDir>.\x64\LibD\</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
+    <LibraryPath>..\built\apr\$(Platform)\Debug_Static\;..\built\expat_static\$(Platform)\Debug\;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Static|x64'">
-    <OutDir>.\x64\LibR\</OutDir>
-    <IntDir>.\x64\LibR\</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Dynamic|x64'">
-    <OutDir>.\x64\LibR\</OutDir>
-    <IntDir>.\x64\LibR\</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
+    <LibraryPath>..\built\apr\$(Platform)\Debug_Static\;..\built\expat_static\$(Platform)\Debug\;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Static|Win32'">
-    <OutDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\</OutDir>
-    <IntDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\$(BaseIntermediateOutputPath)</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Dynamic|Win32'">
-    <OutDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\</OutDir>
-    <IntDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\$(BaseIntermediateOutputPath)</IntDir>
-    <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>..\built\apr\Debug_Static\StaticLibrary\;..\built\expat\Debug\DynamicLibrary\;$(LibraryPath)</LibraryPath>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
+    <LinkIncremental>
+    </LinkIncremental>
+    <LibraryPath>..\built\apr\$(Platform)\Debug_Static\;..\built\expat_static\$(Platform)\Debug\;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Static|Win32'">
-    <OutDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\</OutDir>
-    <IntDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\$(BaseIntermediateOutputPath)</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Dynamic|Win32'">
-    <OutDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\</OutDir>
-    <IntDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\$(BaseIntermediateOutputPath)</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>..\built\apr\Release_Static\StaticLibrary\;..\built\expat\Release\DynamicLibrary\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\built\apr\$(Platform)\Release_Static\;..\built\expat_static\$(Platform)\Debug\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
-    <OutDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\</OutDir>
-    <IntDir>..\built\$(ProjectName)\$(Configuration)\$(ConfigurationType)\$(BaseIntermediateOutputPath)</IntDir>
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|x64'">
+    <OutDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>..\built\$(ProjectName)\$(Platform)\$(Configuration)\$(BaseIntermediateOutputPath)</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Static|x64'">
     <ClCompile>
@@ -192,10 +206,10 @@
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>./include;../apr/include;./include/private;./xml/expat/lib;../apr-iconv/include;./dbm/sdbm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC;API_DECLARE_STATIC;APU_USE_SDBM;HAVE_SQL_H;XML_STATIC;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\x64\LibD\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\x64\LibD\aprutil.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <ProgramDataBaseFileName>$(OutDir)aprutil-1</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions> /EHsc </AdditionalOptions>
     </ClCompile>
     <ResourceCompile>
@@ -208,7 +222,7 @@
     </Bscmake>
     <Lib>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>x64\LibD\aprutil-1.lib</OutputFile>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Dynamic|x64'">
@@ -221,10 +235,10 @@
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>./include;../apr/include;./include/private;./xml/expat/lib;../apr-iconv/include;./dbm/sdbm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC;API_DECLARE_STATIC;APU_USE_SDBM;HAVE_SQL_H;XML_STATIC;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\x64\LibD\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\x64\LibD\aprutil.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <ProgramDataBaseFileName>$(OutDir)aprutil-1</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <AdditionalOptions> /EHsc </AdditionalOptions>
     </ClCompile>
     <ResourceCompile>
@@ -233,12 +247,19 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\x64\LibD\aprutil.bsc</OutputFile>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
     </Bscmake>
     <Lib>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>x64\LibD\aprutil-1.lib</OutputFile>
     </Lib>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Link>
+      <AdditionalDependencies>EXPAT_STATIC.LIB;APR.LIB;ODBC32.LIB;WS2_32.LIB;ADVAPI32.LIB;MSWSOCK.LIB;SHELL32.LIB;RPCRT4.LIB;legacy_stdio_definitions.lib</AdditionalDependencies>
+      <AdditionalOptions>/NODEFAULTLIB:libcmtd.lib %(AdditionalOptions)</AdditionalOptions>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Static|x64'">
     <ClCompile>
@@ -252,10 +273,10 @@
       <OmitFramePointers>false</OmitFramePointers>
       <AdditionalIncludeDirectories>./include;../apr/include;./include/private;./xml/expat/lib;../apr-iconv/include;./dbm/sdbm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC;API_DECLARE_STATIC;APU_USE_SDBM;HAVE_SQL_H;XML_STATIC;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\x64\LibR\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\x64\LibR\aprutil.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <ProgramDataBaseFileName>$(OutDir)aprutil-1</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <ResourceCompile>
       <Culture>0x0409</Culture>
@@ -282,10 +303,10 @@
       <OmitFramePointers>false</OmitFramePointers>
       <AdditionalIncludeDirectories>./include;../apr/include;./include/private;./xml/expat/lib;../apr-iconv/include;./dbm/sdbm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC;API_DECLARE_STATIC;APU_USE_SDBM;HAVE_SQL_H;XML_STATIC;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\x64\LibR\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\x64\LibR\aprutil.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <ProgramDataBaseFileName>$(OutDir)aprutil-1</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <ResourceCompile>
       <Culture>0x0409</Culture>
@@ -293,12 +314,18 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\x64\LibR\aprutil.bsc</OutputFile>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
     </Bscmake>
     <Lib>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>x64\LibR\aprutil-1.lib</OutputFile>
     </Lib>
+    <Link>
+      <AdditionalDependencies>EXPAT_STATIC.LIB;APR.LIB;ODBC32.LIB;WS2_32.LIB;ADVAPI32.LIB;MSWSOCK.LIB;SHELL32.LIB;RPCRT4.LIB</AdditionalDependencies>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Static|Win32'">
     <ClCompile>
@@ -358,8 +385,9 @@
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Lib>
     <Link>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>EXPAT.LIB;APR.LIB;ODBC32.LIB;WS2_32.LIB;ADVAPI32.LIB;MSWSOCK.LIB;SHELL32.LIB;RPCRT4.LIB</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>EXPAT_STATIC.LIB;APR.LIB;ODBC32.LIB;WS2_32.LIB;ADVAPI32.LIB;MSWSOCK.LIB;SHELL32.LIB;RPCRT4.LIB</AdditionalDependencies>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
       <AdditionalOptions />
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
@@ -431,7 +459,7 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
     <Link>
-      <AdditionalDependencies>APR.LIB;EXPAT.LIB;WS2_32.LIB;ADVAPI32.LIB;ODBC32.LIB;MSWSOCK.LIB;SHELL32.LIB;RPCRT4.LIB</AdditionalDependencies>
+      <AdditionalDependencies>APR.LIB;EXPAT_STATIC.LIB;WS2_32.LIB;ADVAPI32.LIB;ODBC32.LIB;MSWSOCK.LIB;SHELL32.LIB;RPCRT4.LIB</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
